@@ -7,6 +7,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import {BuildsOverviewComponent} from "./pages/builds-overview/builds-overview.component";
+import {DeploysOverviewComponent} from "./pages/deploys-overview/deploys-overview.component";
 
 const routes: Routes = [
   {
@@ -47,6 +48,11 @@ const routes: Routes = [
   {
     path: 'builds-overview',
     component: BuildsOverviewComponent,
+    canActivate: [ AuthGuardService ]
+  },
+  {
+    path: 'deploys-overview',
+    component: DeploysOverviewComponent,
     canActivate: [ AuthGuardService ]
   },
   {

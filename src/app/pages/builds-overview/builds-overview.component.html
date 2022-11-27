@@ -1,8 +1,18 @@
 <p>builds works!</p>
 
-<div *ngIf="job.url">
-  <h4>Job</h4>
-  <div>
-    <label><strong>URL:</strong></label> {{ job.url }}
-  </div>
-</div>
+<dx-select-box
+  [dataSource]="data"
+  valueExpr="id"
+  displayExpr="appName"
+  (onValueChanged)="onValueChanged($event)">
+
+</dx-select-box>
+
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]=""
+  keyExpr="ID"
+  [columns]="['Application', 'City', 'State', 'Phone', 'Fax']"
+  [showBorders]="true"
+>
+</dx-data-grid>

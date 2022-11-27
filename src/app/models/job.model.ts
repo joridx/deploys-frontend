@@ -14,3 +14,13 @@ export class Build {
   buildNumber: number;
   url: string;
 }
+
+export class JenkinsApp {
+  id: number;
+  appName: string;
+  folder: string;
+}
+
+export class BuildAppStats {
+  appName: string;
+}

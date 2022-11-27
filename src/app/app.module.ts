@@ -10,27 +10,32 @@ import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { UnauthenticatedContentModule } from './unauthenticated-content';
 import { AppRoutingModule } from './app-routing.module';
 import { BuildsOverviewComponent } from './pages/builds-overview/builds-overview.component';
+import {DxDataGridModule, DxSelectBoxModule} from "devextreme-angular";
+import { DeploysOverviewComponent } from './pages/deploys-overview/deploys-overview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BuildsOverviewComponent
+    BuildsOverviewComponent,
+    DeploysOverviewComponent
   ],
-  imports: [
-    BrowserModule,
-    SideNavOuterToolbarModule,
-    SideNavInnerToolbarModule,
-    SingleCardModule,
-    FooterModule,
-    ResetPasswordFormModule,
-    CreateAccountFormModule,
-    ChangePasswordFormModule,
-    LoginFormModule,
-    UnauthenticatedContentModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        SideNavOuterToolbarModule,
+        SideNavInnerToolbarModule,
+        SingleCardModule,
+        FooterModule,
+        ResetPasswordFormModule,
+        CreateAccountFormModule,
+        ChangePasswordFormModule,
+        LoginFormModule,
+        UnauthenticatedContentModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        DxSelectBoxModule,
+        DxDataGridModule,
+    ],
   providers: [
     AuthService,
     ScreenService,

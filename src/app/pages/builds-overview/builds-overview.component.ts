@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Job} from "../../models/job.model";
-import { JenkinsService} from "../../services/jenkins.service";
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {JenkinsApp, Job} from "../../models/job.model";
+import {BuildAppService} from "../../services/build-app.service";
 
 @Component({
   selector: 'app-builds-overview',
@@ -9,26 +9,28 @@ import { JenkinsService} from "../../services/jenkins.service";
 })
 export class BuildsOverviewComponent implements OnInit {
 
-  @Input() job: Job = {
-    url:''
-  };
+  data: JenkinsApp[];
 
-  constructor(private jenkinsService : JenkinsService) { }
+  constructor(private buildAppService : BuildAppService) { }
 
   ngOnInit(): void {
-    this.getJob();
+    this.getApps();
   }
 
-  getJob(): void {
-    this.jenkinsService.getByUrl('https%253A%252F%252Fjenkins-adp-tools-itmp-frontend.apps.crp.ec1.aws.aztec.cloud.allianz%252Fjob%252FRws_UI-editor%252Fjob%252Fdevelop')
+  getApps(): void {
+    this.buildAppService.getAll()
       .subscribe({
         next: (data) => {
           console.log(data);
-          this.job = data;
-          console.log('description:' + this.job.healthReport.description);
+          this.data = data;
         },
         error: (e) => console.error(e)
       });
+  }
+
+  onValueChanged(e) {
+    console.log(e.previousValue);
+    console.log(e.value);
   }
 
 }

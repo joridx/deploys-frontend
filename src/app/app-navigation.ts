@@ -31,7 +31,7 @@ export const navigation = [
     items: [
       {
         text: 'Visió general',
-        path: '/deployments_overview',
+        path: '/deploys-overview',
         icon: 'checklist'
       },
       {
